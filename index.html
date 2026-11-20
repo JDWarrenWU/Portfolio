@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jack's Desktop</title>
+<meta name="description" content="Jack: economics and communication design portfolio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=Silkscreen&display=swap">
+<link rel="preload" href="sky.webp" as="image" type="image/webp">
+<link rel="stylesheet" href="styles.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="sky" aria-hidden="true"></div>
+
+<!-- ============ Menu bar ============ -->
+<header class="menubar">
+  <span class="menubar-logo" aria-hidden="true"></span>
+  <b>Jack</b>
+  <span class="menubar-item">File</span>
+  <span class="menubar-item">Edit</span>
+  <span class="menubar-item">View</span>
+  <span class="menubar-item">Window</span>
+  <span class="menubar-item">Help</span>
+  <span class="menubar-spacer"></span>
+  <button id="sfx-toggle" aria-pressed="true" aria-label="Turn sound effects off"></button>
+  <span class="menubar-clock" id="clock"></span>
+</header>
+
+<div class="shell">
+  <main class="desktop" id="desktop">
+
+    <!-- ============ Home ============ -->
+    <section class="win home" id="win-home" aria-labelledby="home-title">
+      <div class="win-bar">
+        <span class="tl off"></span><span class="tl off"></span><span class="tl off"></span>
+        <span class="win-title">Home</span>
+      </div>
+      <div class="body">
+        <div class="cond">
+          <h1 class="display" id="home-title">Hello! I'm Jack</h1>
+          <p class="home-sub">Economics and Communication Design</p>
+        </div>
+        <nav class="icons" aria-label="Open a window">
+          <button class="icon-btn" data-open="about">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <defs>
+                <linearGradient id="g-card" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#cfd5dd"/></linearGradient>
+                <linearGradient id="g-head" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8cc4ff"/><stop offset="1" stop-color="#2a6fd0"/></linearGradient>
+              </defs>
+              <rect x="6" y="10" width="52" height="44" rx="5" fill="url(#g-card)" stroke="#8a919b"/>
+              <path d="M11 10h42a5 5 0 0 1 5 5v4H6v-4a5 5 0 0 1 5-5z" fill="#2a6fd0"/>
+              <circle cx="22" cy="31" r="6" fill="url(#g-head)"/>
+              <path d="M12 47c1-7 5-9 10-9s9 2 10 9z" fill="url(#g-head)"/>
+              <rect x="36" y="27" width="16" height="3" rx="1.5" fill="#9aa2ad"/>
+              <rect x="36" y="34" width="12" height="3" rx="1.5" fill="#b9c0c9"/>
+              <rect x="36" y="41" width="14" height="3" rx="1.5" fill="#b9c0c9"/>
+            </svg>
+            <span>About</span>
+          </button>
+          <button class="icon-btn" data-open="work">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <defs>
+                <linearGradient id="g-folder" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c8e4ff"/><stop offset=".5" stop-color="#76b3f3"/><stop offset="1" stop-color="#2f74cf"/></linearGradient>
+              </defs>
+              <path d="M6 15h17l5 5h30v10H6z" fill="#3e80d5" stroke="#2a5fae"/>
+              <rect x="4" y="21" width="56" height="35" rx="4" fill="url(#g-folder)" stroke="#2a5fae"/>
+              <rect x="7" y="23" width="50" height="11" rx="3" fill="#fff" opacity=".45"/>
+            </svg>
+            <span>Work</span>
+          </button>
+          <button class="icon-btn" data-open="contact">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <defs>
+                <linearGradient id="g-env" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#e0e4ea"/></linearGradient>
+              </defs>
+              <rect x="5" y="14" width="54" height="38" rx="3" fill="url(#g-env)" stroke="#8a919b"/>
+              <rect x="7.5" y="16.5" width="49" height="33" rx="2" fill="none" stroke="#2a6fd0" stroke-width="3" stroke-dasharray="5 4"/>
+              <rect x="7.5" y="16.5" width="49" height="33" rx="2" fill="none" stroke="#d83a2b" stroke-width="3" stroke-dasharray="4 5" stroke-dashoffset="-5"/>
+              <path d="M8 18l24 18 24-18" fill="none" stroke="#9aa2ad" stroke-width="2"/>
+              <rect x="44" y="20" width="9" height="11" fill="#5cc236" stroke="#2d7d13"/>
+            </svg>
+            <span>Contact</span>
+          </button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Desktop icon -->
+    <div class="desk-icons">
+      <button class="icon-btn" data-open="fun"><span class="cd" aria-hidden="true"></span><span>Fun Stuff</span></button>
+    </div>
+
+    <!-- ============ About ============ -->
+    <section class="win float" id="win-about" style="--w: 520px" aria-label="About" hidden>
+      <div class="win-bar">
+        <button class="tl red close" aria-label="Close About"><span class="x">×</span></button><span class="tl yellow"></span><span class="tl green"></span>
+        <span class="win-title">About</span>
+      </div>
+      <div class="body">
+        <div class="profile">
+          <img class="avatar" src="images/profile.jpg" alt="Jack Warren">
+          <div>
+            <div class="cond"><h2 class="display">Jack Warren</h2></div>
+            <p class="muted">Economics &amp; Communication Design<br>Washington University in St. Louis, class of 2028</p>
+          </div>
+        </div>
+        <div>
+          <p class="label">Outside of class</p>
+          <ul class="plain">
+            <li>Student Life Newspaper, Design Editor</li>
+            <li>Rock Climbing Club</li>
+            <li>AIGA Member</li>
+          </ul>
+        </div>
+        <div class="btns">
+          <a class="aqua" href="Jack%20Warren%20Resume.pdf" target="_blank" rel="noopener"><span>Résumé (PDF)</span></a>
+          <a class="aqua white" href="https://www.linkedin.com/in/jack-warren-design" target="_blank" rel="noopener"><span>LinkedIn</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Work ============ -->
+    <section class="win float" id="win-work" style="--w: 720px" aria-label="Work" hidden>
+      <div class="win-bar">
+        <button class="tl red close" aria-label="Close Work"><span class="x">×</span></button><span class="tl yellow"></span><span class="tl green"></span>
+        <span class="win-title">Work</span>
+      </div>
+      <div class="body">
+        <div class="seg" role="tablist" aria-label="Work type">
+          <button role="tab" aria-selected="true" aria-controls="panel-design">Design</button>
+          <button role="tab" aria-selected="false" aria-controls="panel-econ">Economics</button>
+        </div>
+
+        <div class="panel" id="panel-design" role="tabpanel">
+          <div class="gallery" id="gallery"><!-- filled from PROJECTS in script.js --></div>
+        </div>
+
+        <div class="panel" id="panel-econ" role="tabpanel" hidden>
+          <p class="econ-note">I'm currently working on an analysis of the Nintendo Direct. It will be posted here once it's published.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Project detail (filled by script.js) ============ -->
+    <section class="win float" id="win-project" style="--w: 640px" aria-label="Project" hidden>
+      <div class="win-bar">
+        <button class="tl red close" aria-label="Close project"><span class="x">×</span></button><span class="tl yellow"></span><span class="tl green"></span>
+        <span class="win-title" id="pj-bar"></span>
+      </div>
+      <div class="body">
+        <div class="pj-viewer">
+          <button class="pj-media" id="pj-img" aria-label="View larger">
+            <img id="pj-page" alt="">
+            <span class="pj-hint" aria-hidden="true">Click to enlarge</span>
+          </button>
+          <div class="pj-pages" id="pj-pages" aria-label="Pages"></div>
+        </div>
+        <div>
+          <div class="cond" id="pj-title"></div>
+        </div>
+        <p id="pj-desc"></p>
+        <a class="aqua white pj-pdf" id="pj-pdf" href="#" target="_blank" rel="noopener" hidden><span>Open full PDF</span></a>
+        <div class="pj-nav">
+          <button class="aqua white" id="pj-prev"><span>‹ Previous</span></button>
+          <span class="small muted" id="pj-count"></span>
+          <button class="aqua white" id="pj-next"><span>Next ›</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Contact ============ -->
+    <section class="win float" id="win-contact" style="--w: 480px" aria-label="Contact" hidden>
+      <div class="win-bar">
+        <button class="tl red close" aria-label="Close Contact"><span class="x">×</span></button><span class="tl yellow"></span><span class="tl green"></span>
+        <span class="win-title">Contact</span>
+      </div>
+      <div class="body">
+        <div class="cond"><h2 class="display">Say hello.</h2></div>
+        <p>For design work, internships or research, email me.</p>
+        <div class="btns">
+          <code class="email" id="email">JWarren360@outlook.com</code>
+          <button class="aqua white" id="copy-email"><span>Copy</span></button>
+          <a class="aqua" href="mailto:JWarren360@outlook.com"><span>Open Mail</span></a>
+        </div>
+        <p class="toast" id="toast" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ============ Fun Stuff ============ -->
+    <section class="win float" id="win-fun" style="--w: 540px" aria-label="Silly Projects" hidden>
+      <div class="win-bar">
+        <button class="tl red close" aria-label="Close Silly Projects"><span class="x">×</span></button><span class="tl yellow"></span><span class="tl green"></span>
+        <span class="win-title">Fun Stuff</span>
+      </div>
+      <div class="body">
+        <div class="cond"><h2 class="display">Silly Projects</h2></div>
+        <div class="cards">
+          <article class="card">
+            <img class="card-art" src="images/snake.svg" alt="Blue glossy snake heading toward a red apple on a cream checkerboard">
+            <h3>Snake</h3>
+            <button class="aqua white" data-open="snake"><span>Play</span></button>
+          </article>
+          <article class="card">
+            <div class="ph snow">B</div>
+            <h3>Scrap designs</h3>
+            <button class="aqua white" data-open="soon"><span>View</span></button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Snake ============ -->
+    <section class="win float" id="win-snake" style="--w: 420px" aria-label="Snake" hidden>
+      <div class="win-bar">
+        <button class="tl red close" aria-label="Close Snake"><span class="x">×</span></button><span class="tl yellow"></span><span class="tl green"></span>
+        <span class="win-title">Snake</span>
+      </div>
+      <div class="body">
+        <div class="snake-head">
+          <div class="cond"><h2 class="display">Snake</h2></div>
+          <p class="score">Score <b id="sn-score">0</b> · Best <b id="sn-best">0</b></p>
+        </div>
+        <div class="board">
+          <canvas id="sn-canvas" width="320" height="320" tabindex="0" aria-label="Snake game board"></canvas>
+          <div class="board-overlay" id="sn-overlay">
+            <p id="sn-msg" hidden></p>
+            <button class="aqua" id="sn-start"><span>Start</span></button>
+          </div>
+        </div>
+        <div class="pad" aria-label="Direction controls">
+          <button class="aqua white up" data-dir="0,-1" aria-label="Up"><span>▲</span></button>
+          <button class="aqua white left" data-dir="-1,0" aria-label="Left"><span>◀</span></button>
+          <button class="aqua white down" data-dir="0,1" aria-label="Down"><span>▼</span></button>
+          <button class="aqua white right" data-dir="1,0" aria-label="Right"><span>▶</span></button>
+        </div>
+      </div>
+    </section>
+    <!-- ============ Coming soon alert ============ -->
+    <section class="win float alert" id="win-soon" style="--w: 340px" role="alertdialog" aria-labelledby="soon-title" hidden>
+      <div class="win-bar">
+        <button class="tl red close" aria-label="Close"><span class="x">×</span></button><span class="tl yellow"></span><span class="tl green"></span>
+        <span class="win-title">Scrap designs</span>
+      </div>
+      <div class="body">
+        <div class="alert-row">
+          <span class="alert-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><defs><linearGradient id="g-hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6c8"/><stop offset="1" stop-color="#f2b01e"/></linearGradient></defs><rect x="10" y="4" width="28" height="5" rx="2" fill="#6b4a12"/><rect x="10" y="39" width="28" height="5" rx="2" fill="#6b4a12"/><path d="M13 9h22c0 9-8 11-8 15s8 6 8 15H13c0-9 8-11 8-15s-8-6-8-15z" fill="#eaf4ff" stroke="#7d93ad" stroke-width="1.5"/><path d="M17 13h14c-1 4-7 6-7 8-0-2-6-4-7-8zM15.5 37c1-5 8.5-6 8.5-9 0 3 7.5 4 8.5 9z" fill="url(#g-hg)"/></svg>
+          </span>
+          <div>
+            <p class="alert-title" id="soon-title">Coming soon</p>
+            <p class="small muted">Scrap designs are on the way.</p>
+          </div>
+        </div>
+        <div class="btns alert-btns"><button class="aqua" id="soon-ok"><span>OK</span></button></div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ============ Dock ============ -->
+  <footer class="dock-row">
+    <nav class="dock" aria-label="Links">
+      <a class="dock-item blue" href="https://www.linkedin.com/in/jack-warren-design" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="9" width="3.5" height="11" fill="#fff"/><circle cx="5.75" cy="5.5" r="2" fill="#fff"/><path d="M10 9h3.3v1.6c.6-1 1.8-1.9 3.6-1.9 3 0 3.6 2 3.6 4.6V20H17v-5.8c0-1.4 0-3-1.9-3s-2.1 1.4-2.1 2.9V20H10z" fill="#fff"/></svg>
+      </a>
+      <a class="dock-item graphite" href="https://www.instagram.com/not.jack.frost/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="#fff" stroke-width="2.2"/><circle cx="12" cy="12" r="4" fill="none" stroke="#fff" stroke-width="2.2"/><circle cx="17.3" cy="6.7" r="1.3" fill="#fff"/></svg>
+      </a>
+      <span class="dock-sep" aria-hidden="true"></span>
+      <button class="dock-item orange" id="music-toggle" aria-pressed="false" aria-label="Play music: Raccoon Dreams by Stevia Sphere">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 17.5V5.5l11-2.5v12" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/><ellipse cx="6.5" cy="17.8" rx="3" ry="2.4" fill="#fff"/><ellipse cx="17.5" cy="15.3" rx="3" ry="2.4" fill="#fff"/></svg>
+      </button>
+    </nav>
+    <div class="now-playing" id="now-playing" role="status" hidden>
+      <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span id="np-text"><b>Raccoon Dreams</b> · Stevia Sphere</span>
+    </div>
+    <audio id="song" src="raccoon-dreams.mp3" preload="none" loop></audio>
+    <span class="copyright">© 2026 Jack</span>
+  </footer>
+</div>
+
+  <!-- ============ Lightbox (full-screen page viewer) ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lb-title" hidden>
+    <div class="lb-bar">
+      <button class="tl red" id="lb-close" aria-label="Close viewer"><span class="x">×</span></button>
+      <span class="lb-title" id="lb-title"></span>
+      <span class="lb-tools">
+        <button class="aqua white" id="lb-prev" aria-label="Previous page"><span>‹</span></button>
+        <span class="lb-count" id="lb-count"></span>
+        <button class="aqua white" id="lb-next" aria-label="Next page"><span>›</span></button>
+        <button class="aqua" id="lb-zoom" aria-pressed="false"><span>Zoom in</span></button>
+      </span>
+    </div>
+    <div class="lb-stage" id="lb-stage"><img id="lb-img" alt=""></div>
+  </div>
+
+</body>
+</html>
